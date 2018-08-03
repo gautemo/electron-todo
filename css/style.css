@@ -1,0 +1,19 @@
+@import "newtodo.css";
+
+:root{
+    --current-importance-color: mediumseagreen;
+}
+
+body{
+    margin: 0;
+    font-family: 'Oleo Script', cursive;
+}
+
+header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    font-size: 4em;
+    background: linear-gradient(100deg, whitesmoke -100%, orange);
+}
