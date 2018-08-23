@@ -12,13 +12,19 @@
 <body>
     <header>TODO</header>
     <div id="app">
+        <div v-bind:class="modalIsActive" id="modal-background" @click="showImportancePicker = false"></div>
         <div class="new-todo">
-            <input id="new-todo-text" type="text" v-bind:class="newTodoHasText" v-model="newTodo" />
+            <input id="new-todo-text" type="text" v-bind:class="newTodoHasText" v-model="newTodo" @keyup.enter="addTodo"/>
             <label for="new-todo-text">Add TODO</label>
-            <span class="importance importance-current" v-bind:class="importanceIsActive" @click="showImportancePicker = true" v-bind:style="{'background-color': newImportance.color}">{{newImportance.emoji}}</span>
-            <div class="importance-picker" @click="showImportancePicker = false">
+            <span class="importance importance-current" @click="showImportancePicker = true" v-bind:style="{'background-color': newImportance.color}">{{newImportance.emoji}}</span>
+            <div v-bind:class="importanceIsActive" class="importance-picker">
                 <span class="importance" @click="setNewImportance(importance)" v-for="importance in categories" v-bind:style="{'background-color': importance.color}">{{importance.emoji}}</span>
             </div>
+        </div>
+        <div class="my-todos">
+            <ul>
+                <li v-for="todo in mytodos">{{todo.todo}}</li>
+            </ul>
         </div>
     </div>
 
