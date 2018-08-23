@@ -1,13 +1,10 @@
 .new-todo {
     display: flex;
-    margin: 5px;
-    position: absolute;
-    left: 0;
-    right: 0;
+    position: relative;
 }
 
 .new-todo input {
-    flex: 3;
+    flex: 1;
     font-size: 20px;
     margin: 0 2px 0 5px;
 }

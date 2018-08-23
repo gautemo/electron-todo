@@ -13,19 +13,23 @@
     <header>TODO</header>
     <div id="app">
         <div v-bind:class="modalIsActive" id="modal-background" @click="showImportancePicker = false"></div>
-        <div class="new-todo">
+        <section class="new-todo">
             <input id="new-todo-text" type="text" v-bind:class="newTodoHasText" v-model="newTodo" @keyup.enter="addTodo"/>
             <label for="new-todo-text">Add TODO</label>
             <span class="importance importance-current" @click="showImportancePicker = true" v-bind:style="{'background-color': newImportance.color}">{{newImportance.emoji}}</span>
             <div v-bind:class="importanceIsActive" class="importance-picker">
                 <span class="importance" @click="setNewImportance(importance)" v-for="importance in categories" v-bind:style="{'background-color': importance.color}">{{importance.emoji}}</span>
             </div>
-        </div>
-        <div class="my-todos">
-            <ul>
-                <li v-for="todo in mytodos">{{todo.todo}}</li>
+        </section>
+        <section>
+            <ul class="todo-list">
+                <li class="todo-element" v-for="(todo, index) in mytodos">
+                    <span class="importance" v-bind:style="{'background-color': todo.color}">{{todo.emoji}}</span>
+                    <span class="todo-text">{{todo.todo}}</span>
+                    <span class="delete" @click="deleteTodo(index)">🗑️</span>
+                </li>
             </ul>
-        </div>
+        </section>
     </div>
 
     <script src="js/app.js"></script>

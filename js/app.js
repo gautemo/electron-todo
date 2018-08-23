@@ -33,6 +33,9 @@ new Vue({
         addTodo: function(){
             this.mytodos.push({todo: this.newTodo, emoji: this.newImportance.emoji, color: this.newImportance.color});
             this.newTodo = '';
+        },
+        deleteTodo: function(index){
+            this.mytodos.splice(index, 1);
         }
     },
     computed: {

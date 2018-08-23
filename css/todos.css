@@ -1,0 +1,48 @@
+.todo-list{
+    margin: 0;
+    padding: 0;
+}
+
+.todo-element{
+    display: flex;
+    font-size: 1.5em;
+    margin: 5px 10px;
+    padding-bottom: 1px;
+    border-bottom: 1px solid orange;
+}
+
+.todo-element:last-child{
+    border-bottom: none;
+}
+
+.todo-element span{
+    margin: 2px;
+}
+
+.todo-element .importance{
+    height: 40px;
+    width: 40px;
+    font-size: 1.7rem;
+    cursor: default;
+}
+
+.todo-text{
+    flex: 1;
+}
+
+span.delete{
+    height: 40px;
+    width: 40px;
+    font-size: 1.4rem;
+    background-color: rgba(255, 0, 0, 0.644);
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+}
+
+span.delete:hover{
+    background-color: rgba(255, 0, 0, 1);
+}
