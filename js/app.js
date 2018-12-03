@@ -31,6 +31,7 @@ new Vue({
             this.showImportancePicker = false;
         },
         addTodo: function(){
+            if(!this.newTodo) return;
             this.mytodos.push({todo: this.newTodo, emoji: this.newImportance.emoji, color: this.newImportance.color});
             this.newTodo = '';
         },
