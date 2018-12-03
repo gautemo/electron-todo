@@ -34,9 +34,11 @@ new Vue({
             if(!this.newTodo) return;
             this.mytodos.push({todo: this.newTodo, emoji: this.newImportance.emoji, color: this.newImportance.color});
             this.newTodo = '';
+            localStorage.setItem('todos', JSON.stringify(this.mytodos));
         },
         deleteTodo: function(index){
             this.mytodos.splice(index, 1);
+            localStorage.setItem('todos', JSON.stringify(this.mytodos));
         }
     },
     computed: {
@@ -48,6 +50,12 @@ new Vue({
         },
         modalIsActive: function(){
             return this.showImportancePicker ? 'modalactive' : ''; // add check for all modals
+        }
+    },
+    mounted: function(){
+        const savedTodos = localStorage.getItem('todos');
+        if(savedTodos){
+            this.mytodos = JSON.parse(savedTodos);
         }
     }
 });
